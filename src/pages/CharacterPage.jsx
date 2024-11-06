@@ -1,11 +1,12 @@
 
-import { useEffect } from 'react'
+import { useContext, useEffect } from 'react'
 import { CharacterCardComponent } from '../components/characterCardComponent'
 import { useState } from 'react'
 import { useCharacterApi } from '../hooks/useCharacterApi'
+import { TitleContext } from '../contexts/titleContext'
 
 export const CharacterPage = () => {
-
+  const {state,dispatch} = useContext(TitleContext)
   const {data, loading} = useCharacterApi();
 
   const [characterListData, setCharacterListData] = useState(data)
@@ -21,6 +22,8 @@ export const CharacterPage = () => {
       })
     })
   }
+
+  dispatch({type: "setTitle", payload: "CharacterListPage"})
   console.log(data)
   return (
     <>

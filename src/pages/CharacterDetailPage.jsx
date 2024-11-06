@@ -1,15 +1,17 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
 import { useEffect } from "react"
 import { useParams } from "react-router-dom"
 import { CharacterCardComponent } from "../components/characterCardComponent"
 import { useCharacterApi } from "../hooks/useCharacterApi"
+import { TitleContext } from "../contexts/titleContext"
 
 
 export const CharacterDetailPage = () => {
     const { id } = useParams()
     const {data,loading} = useCharacterApi(id)
-   
-    console.log(data)
+    const {state,dispatch} = useContext(TitleContext)
+    
+    dispatch({type: "setTitle", payload: "Character Page"})
     return <>
         {loading ? <p>Loading</p> :
             <>

@@ -1,23 +1,13 @@
-import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import { BrowserRouter } from 'react-router-dom'
-import { Routes,Route } from 'react-router-dom'
-import { CharacterPage } from './pages/CharacterPage.jsx'
-import { CharacterDetailPage } from './pages/CharacterDetailPage.jsx'
-import { LayoutComponent } from './components/LayoutComponent.jsx'
+
+import { TitleContext } from './contexts/titleContext.jsx'
+import { AppComponent } from './components/appComponent.jsx'
+
 
 
 createRoot(document.getElementById('root')).render(
- 
-  <BrowserRouter>
-    <Routes>
-      <Route element={<LayoutComponent/>}>
+<TitleContext.Provider >
 
-        <Route element={<CharacterPage/>} path='' />
-        <Route element={<CharacterDetailPage/>} path='/character/:id' />
-      </Route>
-     
-
-    </Routes>
-  </BrowserRouter>
+    <AppComponent/>
+  </TitleContext.Provider>
 )
