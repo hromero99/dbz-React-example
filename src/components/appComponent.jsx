@@ -27,6 +27,8 @@ export const AppComponent = () => {
                 <Route element={<LayoutComponent />}>
 
                     <Route element={<CharacterPage />} path='' />
+                    <Route element={<CharacterPage />} path='/planets' />
+
                     <Route element={<CharacterDetailPage />} path='/character/:id' />
                 </Route>
 
